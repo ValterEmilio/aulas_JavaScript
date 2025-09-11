@@ -1,3 +1,3 @@
-const curso = document.getElementById('div1')
+const curso = document.getElementById('div2')
 
-curso.innerHTML = 'Valter'
+curso.innerHTML = "Valter"
