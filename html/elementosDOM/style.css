@@ -15,42 +15,20 @@ main{
     align-items: center;
     width: 100%;
 }
-button{
-    width: 150px;
-    height: 40px;
-    background-color: rgb(2, 39, 102);
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 10px;
-}
 
-
-.curso {
+.minhaClasse {
+    background-color: aquamarine;
     display: flex;
     justify-content: center;
     width: 200px;
-    border: 4px solid #2d2c2c;
-    border-radius: 2px;
+    border: 2px solid #2d2c2c;
+    border-radius: 5px;
     padding: 5px;
     margin: 5px 0px;
     cursor: pointer;
 }
-.selecionar{
-    background-color: #800 !important;
-    color: #fcc !important;
-    border-color: #f00 !important;
-}
 
-.c1{
-    background-color: #888;
-    color: rgb(7, 7, 7);
-}
-.c2{
-    background-color: aliceblue;
-    color: #0c0c0c;
-}
-
-.caixa{
+.container{
     border: 4px solid #585858;
     background-color: #eee;
     padding: 10px;
