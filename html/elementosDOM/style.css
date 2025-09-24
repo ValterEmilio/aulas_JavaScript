@@ -16,7 +16,7 @@ main{
     width: 100%;
 }
 
-.minhaClasse {
+.curso {
     background-color: aquamarine;
     display: flex;
     justify-content: center;
@@ -28,7 +28,7 @@ main{
     cursor: pointer;
 }
 
-.container{
+.caixa{
     border: 4px solid #585858;
     background-color: #eee;
     padding: 10px;
@@ -39,4 +39,20 @@ main{
     margin: 2px;
     height: 500px;
     width: 300px;
+}
+.texto{
+    width: 200px;
+    padding: 5px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.botao{
+    width: 150px;
+    padding: 5px;
+    background-color: #6c7bee;
+    border: 2px solid #6c7bee;
+    border-radius: 8px;
+    font-size: 16px;
 }
