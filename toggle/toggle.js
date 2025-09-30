@@ -10,24 +10,25 @@ const nomeCurso=document.querySelector('#nomeCurso')
 
 // Percorre a lista de cursos e cria dinamicamente os elementos na tela
 
+const tirarSelecao=()=>{
+    const cursoSelecionado=[...document.querySelectorAll('.selecionado')]
+    cursoSelecionado.map((el)=>{
+        el.classList.remove('selecionado')
+    })
+}
+
 let indice=0
 const criarNovoCurso=(curso)=>{
     const novoElemento=document.createElement('div')
     novoElemento.setAttribute('id', 'c'+indice)
     novoElemento.setAttribute('class',  'curso c1')
     novoElemento.innerHTML=curso
+    novoElemento.addEventListener('click', (evt)=>{
+        tirarSelecao()
+        evt.target.classList.toggle('selecionado')
+        
+    })
     
-    const comandos = document.createElement('div')
-    comandos.setAttribute('class', 'comandos')
-    
-    const rb=document.createElement('input')
-    rb.setAttribute('type', 'radio')
-    rb.setAttribute('name', 'rb_curso')
-    
-    comandos.appendChild(rb)
-    
-    novoElemento.appendChild(comandos)
-
     return novoElemento
     
 }
@@ -39,29 +40,24 @@ cursos.map((el,chave)=>{
 
 })
 // Função que retorna o input radio que está marcado
-const radioSelecionado = ()=>{
-    const TodosRadios=[...document.querySelectorAll('input[type=radio]')]
-    let radioSelecionado=TodosRadios.filter((el)=>{
-        return el.checked
-    })
-    return radioSelecionado[0]
+const cursoSelecionado=()=>{
+    const cursoSelecionados=[...document.querySelectorAll('.selecionado')]
+    return cursoSelecionados[0]
 }
+
 // Evento do botão "Selecionar Curso"
 btnCursoSelecionado.addEventListener('click', (evt) => {
-    const rs= radioSelecionado()
     try{
-        const cursoSelecionado=rs.parentNode.parentNode.firstChild.textContent
-        window.alert('o Elemento selecionado foi:' + cursoSelecionado)
+        alert('o Elemento selecionado foi:' + cursoSelecionado().innerHTML)
     } catch(ex){
-        window.alert('Selecione um curso')
+        alert('Selecione um curso')
     }
 })
 // Evento do botão "Remover Curso"
 removeCurso.addEventListener('click', (evt) =>{
-    const rs=radioSelecionado()
-    if(rs != undefined){
-        const cursoSelecionado=rs.parentNode.parentNode
-        cursoSelecionado.remove()
+    const cs=cursoSelecionado()
+    if(cs != undefined){
+        cs.remove()
     } else{
         
         window.alert('Selecione um curso')
@@ -71,34 +67,30 @@ removeCurso.addEventListener('click', (evt) =>{
 
 
 adicionarCursoAntes.addEventListener('click', (evt)=>{
-    const rs=radioSelecionado()
-    try{
-        if(nomeCurso.value!=""){
-            const cursoSelecionado=rs.parentNode.parentNode
-            const novoCurso=criarNovoCurso(nomeCurso.value)
-            cxCursos.insertBefore(novoCurso, cursoSelecionado) 
-        } else{
+        const cs=cursoSelecionado()
+        if(nomeCurso.value==""){
             window.alert('Digite o nome que deseja inserir')
+            return
+            
         }
-    } catch(ex){
-        window.alert('Selecione um curso')
-    }
-
+        if (cs==undefined){
+            window.alert('Selecione um curso')
+            return
+        }
+        const novoCurso=criarNovoCurso(nomeCurso.value)
+        cxCursos.insertBefore(novoCurso, cs) 
 })
 
 adicionarCursoDepois.addEventListener('click', (evt)=>{
-    const rs=radioSelecionado()
-    try{
-        if(nomeCurso.value!=""){
-            const cursoSelecionado=rs.parentNode.parentNode
-            const novoCurso=criarNovoCurso(nomeCurso.value)
-            cxCursos.insertBefore(novoCurso, cursoSelecionado.nextSibling)
-        } else{
+        const cs=cursoSelecionado()
+        if(nomeCurso.value==""){
             window.alert('Digite o nome que deseja inserir')
+            return           
         }
-    } catch(ex){
-        window.alert('Selecione um curso')
-    }
-
-    
+        if (cs==undefined){
+            window.alert('Selecione um curso')
+            return
+        }
+        const novoCurso=criarNovoCurso(nomeCurso.value)
+        cxCursos.insertBefore(novoCurso, cs.nextSibling) 
 })

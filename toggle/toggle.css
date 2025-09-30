@@ -1,0 +1,97 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+h1{
+    margin: 0;               /* tira o espaço padrão */
+    margin-bottom: 2px;     /* controla a distância para o main */
+    text-align: center;      /* centraliza o texto */
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+
+}
+button{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(125, 125, 242);
+    color: white;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 3px auto;
+    align-self: center;
+}
+.curso{
+    width: 200px;
+    border: 2px solid #bfbfbf ;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 5px 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.selecionado{
+    background-color: rgb(60, 60, 113) !important;
+    color: rgb(144, 190, 190) !important;
+    border-color: rgb(47, 47, 88) !important;
+}
+.c1{
+    background-color: #ccc;
+    color: #444;
+}
+.c2{
+    background-color: #444;
+    color: #ccc;
+}
+.caixa{
+    border: 4px solid #000;
+    background-color: #eee;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 500px;
+    width: 300px;
+}
+.btn_lixeira{
+    width: 25px;
+    cursor: pointer;
+}
+.caixaNovaFunc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+}
+.comandos{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#caixaNewCurso{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+#nomeCurso {
+    padding: 5px;
+    width: 150px;
+}
