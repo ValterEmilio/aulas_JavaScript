@@ -1,12 +1,19 @@
-function sortear(){
-    let quantidade = parseInt(document.getElementById("quantidade").value)
-    let de = parseInt(document.querySelector("#de").value)
-    let ate = parseInt(document.querySelector("#ate").value)
+let resultado = document.getElementById("resultado")
 
-    if(quantidade==="" || de=== "" || ate===""){
-        alert("digite um numero valido!")
-        return;
+
+function sortear(){
+    let quantidade = document.getElementById("quantidade").value
+    let de = document.querySelector("#de").value
+    let ate = document.querySelector("#ate").value
+
+    if (quantidade==='' || de===''|| ate==='' ){
+        alert('Por favor, digite um Numero!')
+        return
     }
+
+    quantidade = parseInt(quantidade);
+    de = parseInt(de);
+    ate = parseInt(ate);
 
     if (isNaN(quantidade) || isNaN(de) || isNaN(ate) || de > ate || quantidade <= 0) {
         alert("Verifique se os valores inseridos são válidos!");
@@ -16,6 +23,7 @@ function sortear(){
         alert("A quantidade de números a sortear é maior que o intervalo disponível!");
         return;
     }
+
     let sorteados = []
     let numeros
     
@@ -26,16 +34,37 @@ function sortear(){
         }
         sorteados.push(numeros)
     }
-    let resultado = document.getElementById("resultado")
+    
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`
     
-    
+    habilitarBotao() 
+}
+function pegarnumeroaleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function habilitarBotao(){
+    let reinicia = document.getElementById('btn-reiniciar')
+    if(reinicia.classList.contains('container__botao-desabilitado')){
+        reinicia.classList.remove('container__botao-desabilitado')
+        reinicia.classList.add('container__botao')
+    } 
+}
+
+ function reiniciar(){
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>`
     document.getElementById("quantidade").value = "";
     document.getElementById("de").value = "";
     document.getElementById("ate").value = "";
     document.getElementById("quantidade").focus()
-}
+    desabilitaboatao()
 
-function pegarnumeroaleatorio(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+
+}
+function desabilitaboatao(){
+    let desab = document.getElementById('btn-reiniciar')
+    if (desab.classList.contains('container__botao')) {
+        desab.classList.remove('container__botao')
+        desab.classList.add('container__botao-desabilitado')
+    }
 }

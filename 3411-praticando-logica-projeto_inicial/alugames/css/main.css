@@ -32,10 +32,10 @@
 
 .divisor {
     display: flex;
-    gap: 53px;
+    gap: 45px;
     align-items: center;
 
-    margin: 88px 0px 40px;
+    margin: 66px 0px 35px;
 }
 
 .divisor__line {
@@ -47,7 +47,7 @@
 .page-title {
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 3rem;
 
     margin-bottom: 2.5rem;
 }
